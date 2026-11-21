@@ -40,7 +40,7 @@ def football(endpoint: str, key: str, **kwargs) -> list[dict]:
     return api_football(endpoint, args, key)
 
 
-def recent_fixtures(team_id: int, kickoff: str, key: str) -> list:
+    def recent_fixtures(team_id: int, kickoff: str, key: str, season: int) -> list:
     # Intervalo anterior a la fecha del partido: evita usar información del futuro.
     match_day = datetime.fromisoformat(kickoff.replace("Z", "+00:00")).date()
     return football("fixtures", key, team=team_id,

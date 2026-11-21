@@ -119,8 +119,9 @@ def run_analysis(game: dict, sports_key: str, search_key: str, history_count: in
     hid = game["teams"]["home"]["id"]
     aid = game["teams"]["away"]["id"]
     kickoff = game["fixture"]["date"]
-    home = recent_fixtures(hid, kickoff, sports_key)
-    away = recent_fixtures(aid, kickoff, sports_key)
+    season = juego["league"]["season"]
+home = recent_fixtures(hid, kickoff, sports_key, season)
+away = recent_fixtures(aid, kickoff, sports_key, season)
     h2h = optional_endpoint("fixtures/headtohead", sports_key, h2h=f"{hid}-{aid}", last=10)
     injured = optional_endpoint("injuries", sports_key, fixture=fid)
     lineups = optional_endpoint("fixtures/lineups", sports_key, fixture=fid)

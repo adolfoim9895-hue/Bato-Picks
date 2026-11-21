@@ -122,7 +122,7 @@ def run_analysis(game: dict, sports_key: str, search_key: str, history_count: in
     season = game["league"]["season"]
 home = recent_fixtures(hid, kickoff, sports_key, season)
 away = recent_fixtures(aid, kickoff, sports_key, season)
-    h2h = optional_endpoint("fixtures/headtohead", sports_key, h2h=f"{hid}-{aid}", last=10)
+h2h = optional_endpoint("fixtures/headtohead", sports_key, h2h=f"{hid}-{aid}", last=10)
     injured = optional_endpoint("injuries", sports_key, fixture=fid)
     lineups = optional_endpoint("fixtures/lineups", sports_key, fixture=fid)
     history_home = get_lineup_history(hid, completed_before(home, kickoff, 4), sports_key, count=history_count)
